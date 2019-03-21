@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TimerForm from '../components/TimerForm';
+import TimerForm from '../containers/TimerForm';
 
 export default class ToggleableTimerForm extends Component {
     render() {

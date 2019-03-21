@@ -1,5 +1,5 @@
 import React from 'react';
-import TimerForm from '../components/TimerForm';
+import TimerForm from '../containers/TimerForm';
 import Timer from '../components/Timer';
 
 const EditableTimer = (props) => {

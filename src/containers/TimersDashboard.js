@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EditableTimerList from './EditableTimerList';
+import EditableTimerList from '../components/EditableTimerList';
 import ToggleableTimerForm from './ToggleableTimerForm';
 
 class TimersDashboard extends Component {
