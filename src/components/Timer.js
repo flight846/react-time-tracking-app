@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import * as helpers from '../helpers/timers';
 
 const Timer = (props)  =>{
-    // const elapsedString = helpers.renderElapsedString(props.elapsed);
+    const elapsedString = helpers.renderElapsedString(props.elapsed);
     return (
         <div className='ui centered card'>
             <div className='content'>
@@ -13,7 +14,7 @@ const Timer = (props)  =>{
                 </div>
                 <div className='center aligned description'>
                     <h2>
-                        {/* {elapsedString} */}
+                        {elapsedString}
                     </h2>
                 </div>
                 <div className='extra content'>

@@ -1,16 +1,49 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import uuid from 'uuidv4';
 import EditableTimerList from '../components/EditableTimerList';
 import ToggleableTimerForm from './ToggleableTimerForm';
+import * as helpers from '../helpers/timers';
 
 class TimersDashboard extends Component {
+    state = {
+        timers: [
+            {
+                title: 'Practice squat',
+                project: 'Gym Chores',
+                id: uuid(), 
+                elapsed: 5456099,
+                runningSince: Date.now(),
+            },
+            {
+                title: 'Bake squash',
+                project: 'Kitchen Chores',
+                id: uuid(), 
+                elapsed: 1273998,
+                runningSince: null,
+            }
+        ]
+    }
+
+    handleCreateFormSubmit = (timer) => {
+        this.createTimer(timer);
+    };
+
+    createTimer = (timer) => {
+        const t = helpers.newTimer(timer);
+        this.setState({
+            timers: this.state.timers.concat(t),
+        });
+    };
+
     render() {
         return (
             <div className='ui three column centered grid'>
                 <div className='column'>
-                    <EditableTimerList />
-                    <ToggleableTimerForm
-                        isOpen={true}
+                    <EditableTimerList 
+                        timers={ this.state.timers }
                     />
+                    <ToggleableTimerForm 
+                        onFormSubmit={ this.handleCreateFormSubmit }/>
                 </div>
             </div>
         )
