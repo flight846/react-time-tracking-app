@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TimerForm from '../containers/TimerForm';
-import Timer from '../components/Timer';
+import Timer from './Timer';
 
 class EditableTimer extends Component {
     state = {
@@ -19,6 +19,10 @@ class EditableTimer extends Component {
         this.props.onFormSubmit(timer);
         this.closeForm();
     }
+
+    handleTrashClick = (timerId) => {
+        this.deleteTimer(timerId);
+    };
 
     closeForm = () => {
         this.setState({ editFormOpen: false });
@@ -45,6 +49,9 @@ class EditableTimer extends Component {
                 elapsed={this.props.elapsed}
                 runningSince={this.props.runningSince}
                 onEditClick={this.handleEditClick}
+                onTrashClick={this.props.onTrashClick}
+                onStartClick={this.props.onStartClick} 
+                onStopClick={this.props.onStopClick}
             />
         )
         return timer
